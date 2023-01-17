@@ -62,7 +62,7 @@ async function beforeAnswer(peerConnection) {
   };
 }
 
-createBroadcaster('broadcaster', description, { beforeAnswer, host: API_URL, prefix: '' });
+createBroadcaster('broadcaster', description, { beforeAnswer, host: API_URL, prefix: '/broadcaster' });
 
 const videos = document.createElement('div');
 videos.className = 'grid';
