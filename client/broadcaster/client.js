@@ -22,6 +22,7 @@ function createBroadcaster(name, description, options) {
   let peerConnection = null;
 
   createStartStopButton(async () => {
+    console.log(25, options);
     peerConnection = await apiClient.createConnection(options);
     window.peerConnection = peerConnection;
   }, () => {

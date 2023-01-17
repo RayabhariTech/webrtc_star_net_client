@@ -25,6 +25,7 @@ class ApiClient {
     } = options;
 
     this.createConnection = async (options = {}) => {
+      console.log(28, options);
       options = {
         beforeAnswer() { },
         stereo: false,
@@ -35,8 +36,8 @@ class ApiClient {
         beforeAnswer,
         stereo
       } = options;
-
-      const response1 = await fetch(`${host}${prefix}/connections`, {
+      console.log(38, host, prefix);
+      const response1 = await fetch('http://localhost:3001/broadcaster/connections', {
         method: 'POST'
       });
 
@@ -52,7 +53,7 @@ class ApiClient {
       // "connectionstatechange" events.
       // eslint-disable-next-line space-before-function-paren
       localPeerConnection.close = function () {
-        fetch(`${host}${prefix}/connections/${id}`, { method: 'delete' }).catch(() => { });
+        fetch('http://localhost:3001/broadcaster/connections/${id}', { method: 'delete' }).catch(() => { });
         return RTCPeerConnection.prototype.close.apply(this, arguments);
       };
 
@@ -68,7 +69,7 @@ class ApiClient {
         });
         await localPeerConnection.setLocalDescription(updatedAnswer);
 
-        await fetch(`${host}${prefix}/connections/${id}/remote-description`, {
+        await fetch(`http://localhost:3001/broadcaster/connections/${id}/remote-description`, {
           method: 'POST',
           body: JSON.stringify(localPeerConnection.localDescription),
           headers: {
