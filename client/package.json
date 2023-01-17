@@ -1,0 +1,28 @@
+{
+  "name": "webrct_star_net_client",
+  "version": "0.1.0",
+  "description": "This project presents a few example applications using node-webrtc.",
+  "private": true,
+  "main": "index.js",
+  "scripts": {
+    "lint": "eslint index.js examples lib test",
+    "start": "node index.js"
+  },
+  "keywords": [
+    "Web",
+    "Audio"
+  ],
+  "author": "Mark Andrus Roberts <markandrusroberts@gmail.com>",
+  "license": "BSD-3-Clause",
+  "dependencies": {
+    "body-parser": "^1.18.3",
+    "express": "^4.16.4",
+    "node-fetch": "^2.3.0",
+    "uuid": "^3.3.2",
+    "wrtc": "^0.4.3"
+  },
+  "devDependencies": {
+    "eslint": "^5.15.1",
+    "tape": "^4.10.0"
+  }
+}
